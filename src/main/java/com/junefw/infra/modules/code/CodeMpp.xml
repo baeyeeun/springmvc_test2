@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.junefw.infra.modules.code.CodeMpp">	<!-- 지금 파일 지정 -->
+
+    <resultMap id="resultMapObj" type="com.junefw.infra.modules.code.Code"></resultMap>	<!-- 결과 객체 저징 -->
+
+	<!-- infrCodeGroup -->
+	
+	<sql id="selectCommon">
+		FROM
+			infrCodeGroup a
+		WHERE 1=1
+			<choose>
+				<when test="shIfcgDelNy == 1">AND a.ifcgDelNy = 1</when>
+				<when test="shIfcgDelNy == 0">AND a.ifcgDelNy = 0</when>
+			</choose>
+			<if test="shIfcgName != null and !shIfcgName.equals('')"> AND a.ifcgName LIKE concat('%',#{shIfcgName},'%')</if>
+			<choose>                             
+				<when test="shOption == 1">AND a.ifcgName LIKE concat('%',#{shValue},'%')</when>
+				<when test="shOption == 2">AND a.ifcgNameEng LIKE concat('%',#{shValue},'%')</when>
+			</choose>
+	</sql>
+	
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT 
+			 count(*)
+		<include refid="selectCommon" />
+	</select>
+	
+	
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT 
+			a.ifcgSeq
+			, a.ifcgName
+			, a.ifcgNameEng
+			, a.ifcgDelNy
+		<include refid="selectCommon" />
+		limit #{startRnumForMysql}, #{rowNumToShow} 
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO infrCodeGroup (
+			ifcgName
+			,ifcgDelNy
+		) VALUES (
+			#{ifcgName}		
+			,0		
+		)
+	</insert>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT 
+			a.ifcgSeq
+			, a.ifcgName
+			, a.ifcgDelNy
+		FROM
+			infrCodeGroup a
+		WHERE 1=1
+			AND ifcgSeq = #{ifcgSeq}
+	</select>
+	
+	<update id="update">
+		UPDATE infrCodeGroup SET 
+			ifcgName = #{ifcgName}
+		WHERE 1=1
+			AND ifcgSeq = #{ifcgSeq}
+	</update>
+	
+	<!-- infrCode -->
+	
+	<select id="selectListCode" resultMap="resultMapObj">
+		SELECT 
+			a.ifcdSeq
+			, a.ifcdName
+			, a.ifcdDelNy
+		FROM
+			infrCode a
+		WHERE 1=1
+			AND a.ifcdDelNy = 0
+			<if test="shIfcgSeq != null and !shIfcgSeq.equals('')"> AND ifcgSeq = #{shIfcgSeq}</if>
+		order by a.ifcgSeq, ifcdOrder
+	</select>
+	
+	<insert id="insertCode">
+		INSERT INTO infrCode (
+			ifcdName
+			,ifcdDelNy
+			,ifcgSeq
+		) VALUES (
+			#{ifcdName}		
+			,0
+			,#{ifcgSeq}
+		)
+	</insert>
+	
+	<select id="selectOneCode" resultMap="resultMapObj">
+		SELECT 
+			a.ifcdSeq
+			, a.ifcdName
+			, a.ifcdDelNy
+		FROM
+			infrCode a
+		WHERE 1=1
+			AND a.ifcdSeq = #{ifcdSeq}
+	</select>
+	
+	<update id="updateCode">
+		UPDATE infrCode SET 
+			ifcdName = #{ifcdName}
+		WHERE 1=1
+			AND ifcdSeq = #{ifcdSeq}
+	</update>
+	
+</mapper>
