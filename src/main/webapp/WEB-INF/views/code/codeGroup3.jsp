@@ -125,7 +125,7 @@
 
 	   <tbody>
 	   
-	 <c:choose>
+<c:choose>
 	<c:when test="${fn:length(list) eq 0}">
 		<tr>
 			<td class="text-center" colspan="9">There is no data!</td>
@@ -134,120 +134,29 @@
 	<c:otherwise>
 		<c:forEach items="${list}" var="item" varStatus="status">	
 		
+		<c:out value="${item.ifcgSeq}"/> | <a href="/infra/code/codeGroupView?ifcgSeq=<c:out value="${item.ifcgSeq}"/>"><c:out value="${item.ifcgName}"/></a> | <c:out value="${item.ifcgNameEng}"/> |
+		
+		<c:choose>
+			<c:when test="${item.ifcdDelNy eq 0 }">O</c:when>
+			<c:otherwise>X</c:otherwise>
+		</c:choose>
+		
+		<%-- <c:out value="${item.ifcgDelNy}"/> --%> <br>
+		
 		<%-- <c:out value="${item.ifmmSeq}"/> | <c:out value="${item.ifmmId}"/> | <c:out value="${item.ifmmName}"/> <br> --%>
 		<tr>
 	      <th>
 	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
 	      </th>
-	      <th scope="row"><c:out value="${item.ifmmSeq}"/></th>
-	      <td><c:out value="${item.ifmmName}"/></td>
-	      <td><c:out value="${item.ifmmId}"/></td>
+	      <th scope="row"><c:out value="${item.ifcgSeq}"/></th>
+	      <td><c:out value="${item.ifcgName}"/></td>
+	      <td><c:out value="${item.ifcgnameeng}"/></td>
 	     </tr>
 		
 		</c:forEach>
 	</c:otherwise>
-</c:choose>	   
-	   <!-- 
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">1</th>
-	      <td>서울</td>
-	      <td>seoul2002</td>
-	      <td>010-1111-2222</td>
-	     </tr>
-	     
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">2</th>
-	      <td>도쿄</td>
-	      <td>tokyo0903</td>
-	      <td>010-2222-2222</td>
-	     </tr>
-	     
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">3</th>
-	      <td>나리타</td>
-	      <td>narita99</td>
-	      <td>010-1234-2222</td>
-	      </tr>
+</c:choose>  
 
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">4</th>
-	      <td>모스크바</td>
-	      <td>moscow45</td>
-	      <td>010-1111-1234</td>
-	      </tr>
-
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">5</th>
-	      <td>수원</td>
-	      <td>suwon95</td>
-	      <td>010-1234-5678</td>
-	      </tr>
-
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">6</th>
-	      <td>오슬로</td>
-	      <td>oslo98</td>
-	      <td>010-5678-1234</td>
-	      </tr>
-	      
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">7</th>
-	      <td>베를린</td>
-	      <td>berlin88</td>
-	      <td>010-7777-2222</td>
-	      </tr>
-	      
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">8</th>
-	      <td>오하이오</td>
-	      <td>ohio74</td>
-	      <td>010-1234-1234</td>
-	      </tr>
-	      
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">9</th>
-	      <td>나이로비</td>
-	      <td>nairobi82</td>
-	      <td>010-1122-3344</td>
-	      </tr>
-	      
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">10</th>
-	      <td>리우</td>
-	      <td>rio22</td>
-	      <td>010-5566-7788</td>
-	      </tr>
-	     -->  
 	    </tbody>
 	   </table>
 
@@ -265,8 +174,6 @@
 
 	<div class="row">
 	 <div class="col">
-	 
-	 <c:out value="${vo.startPage}"/>
 	  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 	  <div class="btn-group me-2" role="group" aria-label="First group">
 	    <button type="button" class="btn btn-dark">1</button>

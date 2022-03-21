@@ -7,7 +7,8 @@
 
 
 <form id="" name="" method="get" action="/infra/code/codeList">
-<select name="shIfcgSeq">
+
+<select name="shIfcgSeq" id="shIfcgSeq">
 	<option value="">::코드그룹::
 		<c:forEach items="${listCodeGroup}" var="item" varStatus="status">
 	<option value="<c:out value="${item.ifcgSeq }"/>" <c:if test="${param.shIfcgSeq eq item.ifcgSeq }">selected</c:if>><c:out value="${item.ifcgName }"/>
