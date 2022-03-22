@@ -45,13 +45,14 @@ public class CodeController {
 	
 	
 	@RequestMapping(value = "/code/codeGroupInst")
-	public String codeGroupInst(Code dto) throws Exception {
+	public String codeGroupInst(Code dto, CodeVo vo) throws Exception {
 		
 		
 //		입력 실행
 		service.insert(dto);
 
-		return "redirect:/code/codeGroupList";
+		//return "redirect:/code/codeGroupList";
+		return "redirect:/code/codeGroupView?ifcgSeq=" + dto.getIfcgSeq() + "&thisPage=" + vo.getThisPage() + "&shOption=" + vo.getShOption() + "&shValue=" + vo.getShValue();
 	}
 	
 	
