@@ -56,7 +56,7 @@ public class CodeController {
 	
 	
 	@RequestMapping(value = "/code/codeGroupView")
-	public String codeGroupView(CodeVo vo, Model model) throws Exception {
+	public String codeGroupView(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 		
 		// 디비까지 가서 한 건의 데이터 값을 가지고 온다, VO
 		Code rt = service.selectOne(vo);

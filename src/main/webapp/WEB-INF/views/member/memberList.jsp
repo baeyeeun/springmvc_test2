@@ -19,102 +19,60 @@
   </head>
   <style type="text/css">
   
-  	.form-check{
-  	
-  		padding: 0px 0px 0px 20px;
-  		margin: 2px;
-  	}
-  	
-  	.img1{
-  		width: 30px;
-  		height: 30px;
-  		
-  		font-size: 9px;
-  	
-  	}
- 
- 	.container-fluid, .a.nav-link{
-
- 		color: #ffffff;
- 		text-decoration: none;
- 	}
-
-	.logo{
-		width: 150px;
-		height: 80px;
-	
-	}
-	
-	.title{
-		padding : 13px 0px 0px 0px;
-	}
   
   </style>
   <body>
 
 	<!--  -->
 
-<div class="container">
+  <div class="container">
+  
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+       <p class="logo"> YES24 </p>
+      </a>
 
-	<div class="row">
-	 <div class="col-11">
-		<p class="logo1 fs-5 fw-bold"><img class="logo" src="../../../images/xdmin/yes24.png">YES24 Management System</p>
-	 </div>
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">회원 관리</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">리뷰 관리</a></li>
+      </ul>
 
-	 <div class="col-1">
-		<p class="">logout</p>
-	 </div>
-	</div>
-
-	<div class="row">
-	 <div class="col">
-      <nav class="navbar navbar-expand navbar-dark bg-dark">
-       <div class="container-fluid">
-       <a class="navbar-brand" href="#">관리</a>
-       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="navbar-toggler-icon"></span>
-       </button>
-
-      <div class="collapse navbar-collapse">
-       <ul class="navbar-nav me-auto">
-       
-       <li class="nav-item">
-       <a class="nav-link" href="#">회원 관리</a>
-       </li>
-
-       <li class="nav-item">
-       <a class="nav-link" href="#">게시판 관리</a>
-       </li>
-       
-       </ul>
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-dark me-2">Login</button>
+        <button type="button" class="btn btn-dark">Sign-up</button>
       </div>
+    </header>
+	
+	 <div class="p-4 p-md-5 mb-4 text-dark rounded bg-light">
+    <div class="col-md-6 px-0">
+  
+
+<select name="shIfcgDelNy" id="shIfcgDelNy">
+	<option value="">삭제여부
+	<option value="1" <c:if test="${vo.shIfcgDelNy eq 1}">selected</c:if>> Y
+	<option value="0" <c:if test="${vo.shIfcgDelNy eq 0}">selected</c:if>> N
+</select>
+
+<select name="shIfcgDelNy" id="shIfcgDelNy">
+	<option value="">회원 검색
+	<option value="1" <c:if test="${vo.shIfcgDelNy eq 1}">selected</c:if>> 이름
+	<option value="0" <c:if test="${vo.shIfcgDelNy eq 0}">selected</c:if>> 아이디
+</select>
+
+
+<input type="text" name="shValue" id="shValue" value="<c:out value="${vo.shValue}"/>">
+<input type="submit" id="btnSubmit" name="search">
+   
     </div>
-  </nav>
-	</div>
-
+  </div>
+  
 	<div class="row">
 	 <div class="col">
-      <p class="fs-2 fw-bold lh-1 title">회원관리</p>
-	 </div>
-	</div>
-	
-		
-	<div class="row">
-	 <div class="col">
-
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-dark " type="submit">search</button>
-      </form>
-
-	 </div>
-	</div>
-	
-	<div class="row">
-	 <div class="col">
+	 
 	   <table class="table">
 
-	   <thead>
+	   <thead class="table-dark">
 	    <tr>
 	     <th scope="col"></th>
 	     <th scope="col">번호</th>
@@ -147,107 +105,7 @@
 		</c:forEach>
 	</c:otherwise>
 </c:choose>	   
-	   <!-- 
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">1</th>
-	      <td>서울</td>
-	      <td>seoul2002</td>
-	      <td>010-1111-2222</td>
-	     </tr>
-	     
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">2</th>
-	      <td>도쿄</td>
-	      <td>tokyo0903</td>
-	      <td>010-2222-2222</td>
-	     </tr>
-	     
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">3</th>
-	      <td>나리타</td>
-	      <td>narita99</td>
-	      <td>010-1234-2222</td>
-	      </tr>
-
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">4</th>
-	      <td>모스크바</td>
-	      <td>moscow45</td>
-	      <td>010-1111-1234</td>
-	      </tr>
-
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">5</th>
-	      <td>수원</td>
-	      <td>suwon95</td>
-	      <td>010-1234-5678</td>
-	      </tr>
-
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">6</th>
-	      <td>오슬로</td>
-	      <td>oslo98</td>
-	      <td>010-5678-1234</td>
-	      </tr>
-	      
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">7</th>
-	      <td>베를린</td>
-	      <td>berlin88</td>
-	      <td>010-7777-2222</td>
-	      </tr>
-	      
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">8</th>
-	      <td>오하이오</td>
-	      <td>ohio74</td>
-	      <td>010-1234-1234</td>
-	      </tr>
-	      
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">9</th>
-	      <td>나이로비</td>
-	      <td>nairobi82</td>
-	      <td>010-1122-3344</td>
-	      </tr>
-	      
-	     <tr>
-	      <th>
-	     <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
-	      </th>
-	      <th scope="row">10</th>
-	      <td>리우</td>
-	      <td>rio22</td>
-	      <td>010-5566-7788</td>
-	      </tr>
-	     -->  
+ 
 	    </tbody>
 	   </table>
 
@@ -256,9 +114,9 @@
 
 	<div class="row">
 	 <div class="col">
-	 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-	  <button class="btn btn-dark" type="button">수정</button>
-	  <button class="btn btn-dark" type="button">삭제</button>
+	  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+	   <button class="btn btn-dark" type="button">수정</button>
+	   <button class="btn btn-dark" type="button">삭제</button>
 	 </div>
 	 </div>
 	</div>
@@ -267,25 +125,43 @@
 	 <div class="col">
 	 
 	 <c:out value="${vo.startPage}"/>
-	  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-	  <div class="btn-group me-2" role="group" aria-label="First group">
-	    <button type="button" class="btn btn-dark">1</button>
-	    <button type="button" class="btn btn-dark">2</button>
-	    <button type="button" class="btn btn-dark">3</button>
-	    <button type="button" class="btn btn-dark">4</button>
-	    <button type="button" class="btn btn-dark">5</button>
-	    <button type="button" class="btn btn-dark">6</button>
-	    <button type="button" class="btn btn-dark">7</button>
-	    <button type="button" class="btn btn-dark">8</button>
-	    <button type="button" class="btn btn-dark">9</button>
-	    <button type="button" class="btn btn-dark">10</button>
-	  </div>
-	 </div>
+
+	 	<nav aria-label="...">
+	 	 <ul class="pagination">
+  
+		<c:if test="${vo.startPage gt vo.pageNumToShow}">          
+          <li class="page-item"><a class="page-link" href="/infra/member/memberList?thisPage=${vo.startPage - 1}">Previous</a></li>
+		</c:if>
+		
+		<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+		 <c:choose>
+		 
+		 <c:when test="${i.index eq vo.thisPage}">
+		  <li class="page-item active"><a class="page-link" href="/infra/member/memberList?thisPage=${i.index}">${i.index}</a></li>
+		 </c:when>
+		 
+		 <c:otherwise>             
+		  <li class="page-item"><a class="page-link" href="/infra/member/memberList?thisPage=${i.index}">${i.index}</a></li>
+		</c:otherwise>
+		
+		 </c:choose>
+		 </c:forEach>     
+		 
+		 <c:if test="${vo.endPage ne vo.totalPages}">                
+		  <li class="page-item"><a class="page-link" href="/infra/member/memberList?thisPage=${vo.endPage + 1}">Next</a></li>
+		 </c:if>  
+
+  </ul>
+</nav>
+
 	</div>
 
 </div>
 </div>
-</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/infra/resources/js/validation.js"></script>
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -297,6 +173,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
 
+	<script type="text/javascript">
+	$("#btnSubmit").on("click", function(){
+		
+		
+		if(! checkNull($("#shIfcgName"), $("#shIfcgName").val(), "코드 이름을 입력해 주세요")) return false;
+		if(! checkNull($("#shIfcgName"), $("#shIfcgName").val(), "검색어를 입력해 주세요.")) return false	;
+		
+	}); 
+	
+	$("#btnSubmit2").on("click", function(){
+		
+		alert("2번째 버튼입니다!")
+		
+	});
+	
   </body>
 </html>
 
