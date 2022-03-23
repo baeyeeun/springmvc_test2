@@ -56,7 +56,7 @@ public class CodeController {
 		System.out.println("dto.getIfcgSeq() : " + dto.getIfcdSeq());
 		
 		//return "redirect:/code/codeGroupList";
-		return "redirect:/code/codeGroupView?ifcgSeq=" + dto.getIfcgSeq() + "&thisPage=" + vo.getThisPage() + "&shOption=" + vo.getShOption() + "&shValue=" + vo.getShValue();
+		return "redirect:/code/codeGroupView?ifcgSeq=" + dto.getIfcgSeq() + makeQueryString(vo);
 	}
 	
 	
@@ -90,12 +90,12 @@ public class CodeController {
 
 		
 	@RequestMapping(value = "/code/codeGroupUpdt")
-	public String codeGroupUpdt(Code dto) throws Exception {
+	public String codeGroupUpdt(Code dto, CodeVo vo) throws Exception {
 	
 		// 수정 프로세스 실행
 		service.update(dto);
 		
-		return "redirect:/code/codeGroupView?ifcgSeq=" + dto.getIfcgSeq();
+		return "redirect:/code/codeGroupView?ifcgSeq=" + dto.getIfcgSeq() + makeQueryString(vo);
 	}
 
 
