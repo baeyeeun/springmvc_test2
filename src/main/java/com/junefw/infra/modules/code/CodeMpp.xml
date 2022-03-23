@@ -73,6 +73,14 @@
 		WHERE 1=1
 			AND ifcgSeq = #{ifcgSeq}
 	</update>
+
+	<delete id="updateDelet">
+		update infrCodeGriuo set ifchDelNy = 1 WHERE 1=1 AND ifcgSeq = #{ifcgSeq}
+	</delete>
+		
+	<delete id="delete">
+		delete from infrCodeGroup WHERE 1=1 AND ifcgSeq = #{ifcgSeq}
+	</delete>
 	
 	<!-- infrCode -->
 	

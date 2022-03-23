@@ -80,7 +80,7 @@
   </ul>
 </nav>
 
-<a href="/infra/code/codeGruopForm?thisPage=${vo.thisPage}&shOption=<c:out value=${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>">등록</a>
+<a href="/infra/code/codeGroupForm?thisPage=<c:out value="${vo.thisPage}"/>&shOption=<c:out value="${vo.shOption}"/>&shValue="${vo.shValue}"/>등록
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/infra/resources/js/validation.js"></script>

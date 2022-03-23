@@ -42,6 +42,17 @@ public class CodeServiceImpl implements CodeService{
 		return dao.update(dto);
 	}
 
+	@Override
+	public int updelete(CodeVo vo) throws Exception {
+		
+		return dao.delete(vo);
+	}
+
+	@Override
+	public int delete(CodeVo vo) throws Exception {
+		
+		return dao.updateDelet(vo);
+	}
 	
 //	infrCode
 	
@@ -65,6 +76,7 @@ public class CodeServiceImpl implements CodeService{
 	public int updateCode(Code dto) throws Exception {
 		return dao.updateCode(dto);
 	}
+
 
 
 	
