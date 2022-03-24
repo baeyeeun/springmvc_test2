@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -63,11 +64,15 @@ public class CodeController {
 	@RequestMapping(value = "/code/codeGroupView")
 	public String codeGroupView(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 		
-		
+		System.out.println("#########################################");
 		System.out.println("vo.getShOption() : " + vo.getShOption());
 		System.out.println("vo.getshValue() : " + vo.getShValue());
 		System.out.println("vo.getThispage() :" + vo.getThisPage());
 		// 디비까지 가서 한 건의 데이터 값을 가지고 온다, VO
+		System.out.println("vo.getThispage() :" + vo.getThisPage());
+		
+		System.out.println("#########################################");
+		
 		Code rt = service.selectOne(vo);
 		
 		// 가지고 온값을 jsp로 념겨준다
