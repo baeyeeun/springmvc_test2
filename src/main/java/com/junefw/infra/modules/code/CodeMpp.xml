@@ -127,4 +127,16 @@
 			AND ifcdSeq = #{ifcdSeq}
 	</update>
 	
+	<select id="selectListForCache" resultMap="resultMapObj">
+	SELECT
+		ifcdSeq
+		, ifcdName
+		, ifcgSeq
+	FROM
+		infrCode
+	WHERE 1=1
+		AND ifcdDelNy=0
+		AND ifcdDelNy=1
+	</select>
+	
 </mapper>

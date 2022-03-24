@@ -9,7 +9,7 @@
 
 <form id="formList" name="" method="post" action="/infra/code/codeGroupList">
 <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
-<input type="hidden" name="ifcgSeq" value="<c:out value="ifcgName">
+<input type="hidden" id="ifcgSeq" name="ifcgSeq">
 <select name="shIfcgDelNy" id="shIfcgDelNy">
 	<option value="">::삭제여부::
 	<option value="1" <c:if test="${vo.shIfcgDelNy eq 1}">selected</c:if>> Y
@@ -163,16 +163,16 @@
 	abc= function(seq) {
 		
 		$(#thisPage).val(seq);
-		alert("제대로 실행 중 ㅇㅇ seq") //form 객체를 가지고 온다.
+		alert=(seq); //form 객체를 가지고 온다.
 	
 		$("#formList").submit(); //그 가지고 온 객체를 전달한다.
-	}
+	};
 	
 	goForm= function(seq) {
 		
-		alert(seq);
+		alert=(seq);
 		$("#formList").attr("action","/infra/code/codeGroupView");
 		$("#formList").submit(); //그 가지고 온 객체를 전달한다.
-	}
+	};
 
 </script>
