@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<link href="/infra/resources/jQuery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">
 
 <form method="post" action="/infra/code/codeGroupInst">
 	<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}"/>">
@@ -13,16 +14,25 @@
 	<input type="hidden" name="">
 			
 	<input type="text" name="ifcgName" id="ifcgName" placeholder="코드그룹">
+	
+	<input type="text" id="adcDate" name="adcDate">
+	
 	<!-- <input type="text" name="ifcdName" id="ifcdName" placeholder="코드">	 -->
 	<input type="submit" id="btnSubmit" value="제출">
 </form>
 
-<a href="/infra/code/codeGroupList?thisPage=${vo.thisPage}&shOption=<c:out value="${vo.shOption}"/>&shValue=<c:out value="${vo.shValue}"/>"></a>
+<a href="/infra/resources/jQuery/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/infra/resources/js/validation.js"></script>
 
 <script type="text/javascript">
+
+	$(document).ready(function(){
+		$("#abcDate").datepicker();
+	});
+	
 
 $("#btnSubmit").on("click", function(){
 	
@@ -30,5 +40,7 @@ $("#btnSubmit").on("click", function(){
 	//추가 항목은 이 아래에
 	
 });
+
+
 
 </script>
